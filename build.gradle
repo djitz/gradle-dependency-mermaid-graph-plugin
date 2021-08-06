@@ -11,6 +11,7 @@ plugins {
     id 'java'
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.14.0'
 }
 
 group 'com.djitz'
@@ -30,7 +31,9 @@ gradlePlugin {
     // Define the plugin
     plugins {
         gradleDependencyMermaidGraphPlugin {
-            id = 'gradle-dependency-mermaid-graph-plugin'
+            id = 'com.djitz.gradle-dependency-mermaid-graph-plugin'
+            displayName = 'Gradle Dependency Mermaid Graph Generator'
+            description = 'Generate Gradle Dependency Graph in Mermaid file format.'
             implementationClass = 'com.djitz.GradleDependencyMermaidGraphPlugin'
         }
     }
@@ -61,3 +64,13 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+
+
+pluginBundle {
+    website = 'https://github.com/djitz/gradle-dependency-mermaid-graph-plugin'
+    vcsUrl = 'https://github.com/djitz/gradle-dependency-mermaid-graph-plugin'
+    tags = ['dependencygraph', 'mermaid']
+}
+
+
